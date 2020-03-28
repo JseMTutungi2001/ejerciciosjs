@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <script src="ejercicio3.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="titulo "> SOY UN DOCUMENTO HTML</h1>
+        <h1 id="titulo1"> SOY UN DOCUMENTO HTML1</h1>
+        <p id="parrafo" class="lead"> parrafoLorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo" class="lead"> parrafo2Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo" class="lead"> parrafo 3Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+
+        <p id="parrafo2" class=""> parrafoLorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo2" class=""> parrafo2Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo2" class=""> parrafo 3Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <hr>
+        <p id="parrafo1" class="lead3"> parrafoLorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo1" class="lead3"> parrafo2Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+        <p id="parrafo1" class="lead3"> parrafo 3Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptate suscipit corrupti voluptas ad cupiditate velit</p>
+
+        <button id="boton" class="btn btn-info">cambiar</button>
+
+    </div>
+
+    <script>
+        //hasta ahora hemos visto como nos puede devolver resultados la consolo, tambien podemos modificar alguna parte de nuestro ocumento html, por ejemplo lo que veremos a contignuacion nos modificara el texto y estilos de nuestro documento html.
+
+
+        var h1 = document.getElementById("titulo1");
+        console.log(h1.innerHTML);
+
+        h1.innerHTML = 'A un nuevo texto';
+
+        h1.style.color = "red";
+        h1.style.background = "blue";
+
+        var parrafo1 = document.getElementById("parrafo1");
+
+
+        var boton = document.getElementById("boton");
+
+        boton.onclick = function() {
+            parrafo1.style.color = "olive";
+        }
+
+        //otra forma
+
+        function cambiar() {
+            parrafo2.style.color = "olive";
+        }
+        boton.onclick = cambiar;
+
+
+        //forma de acceder a una clase
+
+        var parrafo3 = document.getElementsByClassName("lead");
+
+        console.log(parrafo);
+
+
+        //aunque de esta forma accederemos a todas las clases llamadas lead, tambien hay una forma de solo acceder a una parte de esa clase. esto se realiza con un arreglo de esta forma:
+        var parrafo = document.getElementsByClassName("lead3");
+        console.log(parrafo2[0]);
+
+
+        //tambien podemos hacerlo accesiendo a un selector
+
+        var parrafo = document.querySelector('p');
+
+        console.log("parrafo");
+        //esto nos esta devolviendo solo un parrafo pero si queremos acceder a todos o uno en especifico podemos hacerlo de la siguiente forma
+        var parrafo = document.querySelectorAll('p');
+
+        console.log(parrafo[2]);
+
+
+
+
+        //veamos como trabajar con los eventos
+        var boton = document.getElementById("boton");
+        //esto es para mostrar un mensaje al hacer click
+        boton.addEventListener('click', function() {
+            console.log('me diste un click');
+        })
+
+
+        //esto es para mostrar un mensaje al pasar el mouse sobre el boton
+        var boton = document.getElementById("boton");
+        boton.addEventListener('mouseover', function() {
+                console.log('he detectado el mouse');
+            })
+            //esto es para enviar un mensaje cuando el raton se aleja del boton
+        boton.addEventListener('mouseout', function() {
+            console.log('adios raton');
+        })
+    </script>
+
+</body>
+
+</html>
